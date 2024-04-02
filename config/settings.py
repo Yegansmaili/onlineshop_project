@@ -35,6 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third_party
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     # local apps
     'accounts',
     'pages',
@@ -139,3 +144,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # email_settings
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# crispy_forms_settings
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
