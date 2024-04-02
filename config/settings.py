@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # local apps
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +48,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    #local apps
-    'accounts',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'onlineshop_db',
         'USER': 'yegane',
         'PASSWORD': 'unique@',
-        'HOST': 'postgres',
+        'HOST': 'localhost',
         'PORT': 5432
     }
 }
@@ -122,12 +122,12 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Custom_User settings
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 # static and media settings
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
-
-#Custom_User settings
-AUTH_USER_MODEL = 'accounts.CustomUser'
