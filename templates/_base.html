@@ -16,14 +16,11 @@
 
 {% if user.is_authenticated %}
     <h5>welcome {{ user.username }}</h5>
-    <a href="{% url 'password_change' %}">change password</a>
-    <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">log out</button>
-    </form>
+    <a href="{% url 'account_change_password' %}">change password</a>
+    <a href="{% url 'account_logout' %}">logout</a>
 {% else %}
-    <a href="{% url 'login' %}">login</a>
-   | <a href="{% url 'signup' %}">Sign up</a>
+    <a href="{% url 'account_login' %}">login</a>
+    | <a href="{% url 'account_signup' %}">Sign up</a>
 {% endif %}
 {% block content %}
 {% endblock %}
