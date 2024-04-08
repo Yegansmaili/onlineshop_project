@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third_party
+    'allauth',
+    'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
 
