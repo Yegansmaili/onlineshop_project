@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@k*v(zi5+$a%c$&+0cet-qz%4s96$96$og3s3d6xqe+c^$84wz'
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -88,9 +93,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'onlineshop_db',
-        'USER': 'yegane',
-        'PASSWORD': 'unique@',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
         'HOST': 'localhost',
         'PORT': 5432
     }
@@ -152,7 +157,14 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # email_settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "uniquesmaili@gmail.com"
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+
 
 # crispy_forms_settings
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -160,9 +172,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 SITE_ID = 1
 
-#allauth settings
+# allauth settings
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True #مستقیم به فحه هوم ریدیرکت میشن
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True  # مستقیم به فحه هوم ریدیرکت میشن
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
