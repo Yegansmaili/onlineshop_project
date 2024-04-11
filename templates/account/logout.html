@@ -2,9 +2,20 @@
 {% block title %}login{% endblock %}
 
 {% block content %}
-    <h3>want to log out?</h3>
+         <div class="container">
+        <div class="row">
+            <div class="col-12 ptb--80 ">
+                <div class="bg-light m-1 " style="padding: 5%;margin-top: 50%">
+
+                    <h2 class="text-danger mb-5">
+                        آیا قصد خروج از حساب کاربری خود را دارید؟
+                    </h2>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Log Out</button>
+        <button type="submit" class="btn btn-danger">بله!</button>
     </form>
+                </div>
+            </div>
+        </div>
+         </div>
 {% endblock %}
