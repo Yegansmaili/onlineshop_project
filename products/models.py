@@ -1,5 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -26,6 +28,27 @@ class Product(BaseModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail',args=[self.pk])
+        return reverse('product_detail', args=[self.pk])
 
 
+class Comment(BaseModel):
+    PRODUCT_STARS = (
+        ('1', 'Very Bad'),
+        ('2', 'Bad'),
+        ('3', 'Normal'),
+        ('4', 'Good'),
+        ('5', 'Very Good'),
+    )
+    commented_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='pro_comments')
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='user_comments')
+    text = models.TextField()
+    stars = models.CharField(choices=PRODUCT_STARS, max_length=2)
+
+    def __str__(self):
+        return self.user.username
+
+    def get_stars_display(self):
+        return dict(self.PRODUCT_STARS).get(self.stars, 'Unknown')
+
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.commented_product.id])
