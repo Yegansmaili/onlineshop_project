@@ -6,8 +6,8 @@ from .models import *
 
 
 class ProductListView(generic.ListView):
-    queryset = Product.objects.filter(is_active=True).order_by('-created_at')
-    # queryset = Product.objects.all()
+    # queryset = Product.objects.filter(is_active=True).order_by('-created_at')
+    queryset = Product.active_display_manager.all().order_by('-created_at')
     template_name = 'products/product_list.html'
     context_object_name = "products"
 
@@ -18,8 +18,8 @@ class ProductDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
-        kwargs['comment_count'] = product.pro_comments.filter(is_active=True).count()
-        kwargs['comments'] = product.pro_comments.filter(is_active=True).order_by('-created_at')
+        # kwargs['comment_count'] = product.pro_comments.filter(is_active=True).count()   customized with template tags
+        kwargs['comments'] = product.pro_comments.all().order_by('-created_at')
         kwargs['comment_form'] = CommentForm()
 
         return super().get_context_data(**kwargs)

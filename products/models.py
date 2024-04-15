@@ -3,7 +3,15 @@ from django.db import models
 from django.urls import reverse
 
 
+class ActiveDisplayManager(models.Manager):
+
+    def get_queryset(self):
+        return super(ActiveDisplayManager, self).get_queryset().filter(is_active=True)
+
+
 class BaseModel(models.Model):
+    objects = models.Manager()
+    active_display_manager = ActiveDisplayManager()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
