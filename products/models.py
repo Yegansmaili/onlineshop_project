@@ -48,9 +48,10 @@ class Comment(BaseModel):
         ('5', 'Very Good'),
     )
     commented_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='pro_comments')
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='user_comments')
-    text = models.TextField()
-    stars = models.CharField(choices=PRODUCT_STARS, max_length=2)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='user_comments',
+                             verbose_name='comment author')
+    text = models.TextField(verbose_name='comment text')
+    stars = models.CharField(choices=PRODUCT_STARS, max_length=2, verbose_name='What is your score?')
 
     def __str__(self):
         return self.user.username
