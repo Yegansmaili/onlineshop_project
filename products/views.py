@@ -1,6 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-
+from django.utils.translation import gettext as _
 from .forms import CommentForm
 from .models import *
 
@@ -55,3 +56,7 @@ class CommentCreateView(generic.CreateView):
 #         'product': product,
 #         'comment_form': comment_form,
 #     })
+
+# def say_hello(request):
+#     result = _('Hello')
+#     return HttpResponse(result)

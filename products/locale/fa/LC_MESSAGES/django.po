@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-19 00:55+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: models.py:23
+msgid "available"
+msgstr "موجود"
+
+#: models.py:24
+msgid "Out of stock"
+msgstr "ناموجود"
+
+#: models.py:25
+msgid "new"
+msgstr "جدید"
+
+#: models.py:26
+msgid "preparing"
+msgstr "در حال آماده سازی"
+
+#: models.py:27
+msgid "charged"
+msgstr "شارژ شده"
+
+#: models.py:28
+msgid "Limited"
+msgstr "محدود"
+
+#: models.py:45
+msgid "Very Bad"
+msgstr "خیلی بد"
+
+#: models.py:46
+msgid "Bad"
+msgstr "بد"
+
+#: models.py:47
+msgid "Normal"
+msgstr "معمولی"
+
+#: models.py:48
+msgid "Good"
+msgstr "خوب"
+
+#: models.py:49
+msgid "Very Good"
+msgstr "عالی"
+
+#: models.py:54
+msgid "comment text"
+msgstr "متن دیدگاه شما"
+
+#: models.py:55
+msgid "What is your score?"
+msgstr "امتیاز شما به این محصول :"
+
+#: templates/products/product_detail.html:6
+msgid "product"
+msgstr "محصول"
+
+#: templates/products/product_detail.html:16
+msgid "product detail of"
+msgstr "جزئیات محصول"
+
+#: templates/products/product_detail.html:41
+msgid "$"
+msgstr "تومان"
+
+#: templates/products/product_detail.html:54
+msgid "add to cart"
+msgstr "اضافه به سبد خرید"
+
+#: templates/products/product_detail.html:58
+msgid "categories"
+msgstr "دسته بندی"
+
+#: templates/products/product_detail.html:80
+msgid "comments"
+msgstr "نظرات"
+
+#: templates/products/product_detail.html:157
+msgid "Write your comment"
+msgstr "نظر خود را بنویسید"
+
+#: templates/products/product_detail.html:171
+msgid "submit"
+msgstr "ثبت"

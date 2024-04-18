@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 
 class ActiveDisplayManager(models.Manager):
@@ -19,12 +20,12 @@ class BaseModel(models.Model):
 
 class Product(BaseModel):
     STATUS_CHOICES = (
-        ('available', 'available'),
-        ('unavailable', 'Out of stock'),
-        ('new', 'new'),
-        ('preparing', 'preparing'),
-        ('charged', 'charged'),
-        ('Limited', 'Limited')
+        ('available', _('available')),
+        ('unavailable', _('Out of stock')),
+        ('new', _('new')),
+        ('preparing', _('preparing')),
+        ('charged', _('charged')),
+        ('Limited', _('Limited'))
 
     )
     title = models.CharField(max_length=100)
@@ -35,23 +36,26 @@ class Product(BaseModel):
     def __str__(self):
         return self.title
 
+    def get_status_display(self):
+        return dict(self.STATUS_CHOICES).get(self.status, 'Unknown')
+
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.pk])
 
 
 class Comment(BaseModel):
     PRODUCT_STARS = (
-        ('1', 'Very Bad'),
-        ('2', 'Bad'),
-        ('3', 'Normal'),
-        ('4', 'Good'),
-        ('5', 'Very Good'),
+        ('1', _('Very Bad')),
+        ('2', _('Bad')),
+        ('3', _('Normal')),
+        ('4', _('Good')),
+        ('5', _('Very Good')),
     )
     commented_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='pro_comments')
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='user_comments',
                              verbose_name='comment author')
-    text = models.TextField(verbose_name='comment text')
-    stars = models.CharField(choices=PRODUCT_STARS, max_length=2, verbose_name='What is your score?')
+    text = models.TextField(verbose_name=_('comment text'))
+    stars = models.CharField(choices=PRODUCT_STARS, max_length=2, verbose_name=_('What is your score?'))
 
     def __str__(self):
         return self.user.username
