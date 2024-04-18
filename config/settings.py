@@ -128,10 +128,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
+USE_L10N = True
 USE_I18N = True
 
 USE_TZ = True
