@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
+    'rosetta',
 
     # local apps
     'accounts',
@@ -81,6 +82,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # 'django.template.context_processors.request',
+
             ],
         },
     },
@@ -186,3 +188,9 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# locale settings
+# LOCALE_PATHS = ('templates/locale/',)
+LOCALE_PATHS = [
+       os.path.join(BASE_DIR, 'locale'),
+   ]
