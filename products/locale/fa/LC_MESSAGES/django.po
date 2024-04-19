@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 00:55+0330\n"
+"POT-Creation-Date: 2024-04-19 16:16+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,86 +18,86 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:23
+#: products/models.py:23
 msgid "available"
 msgstr "موجود"
 
-#: models.py:24
+#: products/models.py:24
 msgid "Out of stock"
 msgstr "ناموجود"
 
-#: models.py:25
+#: products/models.py:25
 msgid "new"
 msgstr "جدید"
 
-#: models.py:26
+#: products/models.py:26
 msgid "preparing"
 msgstr "در حال آماده سازی"
 
-#: models.py:27
+#: products/models.py:27
 msgid "charged"
 msgstr "شارژ شده"
 
-#: models.py:28
+#: products/models.py:28
 msgid "Limited"
 msgstr "محدود"
 
-#: models.py:45
+#: products/models.py:48
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: models.py:46
+#: products/models.py:49
 msgid "Bad"
 msgstr "بد"
 
-#: models.py:47
+#: products/models.py:50
 msgid "Normal"
 msgstr "معمولی"
 
-#: models.py:48
+#: products/models.py:51
 msgid "Good"
 msgstr "خوب"
 
-#: models.py:49
+#: products/models.py:52
 msgid "Very Good"
 msgstr "عالی"
 
-#: models.py:54
+#: products/models.py:57
 msgid "comment text"
 msgstr "متن دیدگاه شما"
 
-#: models.py:55
+#: products/models.py:58
 msgid "What is your score?"
 msgstr "امتیاز شما به این محصول :"
 
-#: templates/products/product_detail.html:6
+#: products/templates/products/product_detail.html:6
 msgid "product"
 msgstr "محصول"
 
-#: templates/products/product_detail.html:16
+#: products/templates/products/product_detail.html:16
 msgid "product detail of"
 msgstr "جزئیات محصول"
 
-#: templates/products/product_detail.html:41
+#: products/templates/products/product_detail.html:41
 msgid "$"
 msgstr "تومان"
 
-#: templates/products/product_detail.html:54
+#: products/templates/products/product_detail.html:54
 msgid "add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: templates/products/product_detail.html:58
+#: products/templates/products/product_detail.html:58
 msgid "categories"
 msgstr "دسته بندی"
 
-#: templates/products/product_detail.html:80
+#: products/templates/products/product_detail.html:80
 msgid "comments"
 msgstr "نظرات"
 
-#: templates/products/product_detail.html:157
+#: products/templates/products/product_detail.html:157
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: templates/products/product_detail.html:171
+#: products/templates/products/product_detail.html:171
 msgid "submit"
 msgstr "ثبت"
