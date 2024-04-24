@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from .forms import CommentForm
 from .models import *
 
@@ -35,7 +36,7 @@ class CommentCreateView(generic.CreateView):
         pro_id = int(self.kwargs['pk'])
         product = get_object_or_404(Product, pk=pro_id)
         neww.commented_product = product
-
+        messages.error(self.request,_('your comment has been successfully sent'))
         return super().form_valid(form)
 
 # def product_detail_view(request, pk):

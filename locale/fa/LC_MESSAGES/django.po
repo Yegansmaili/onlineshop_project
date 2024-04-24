@@ -67,7 +67,7 @@ msgid ""
 msgstr ""
 
 #: templates/account/login.html:10
-msgid "LOGIN"
+msgid "Login"
 msgstr "عضویت"
 
 #: templates/account/password_change_done.html:7
@@ -1302,5 +1302,4 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#~ msgid "login"
-#~ msgstr "لاگین"
+

@@ -129,13 +129,20 @@
     </header>
     <!-- Header End -->
     <!-- Main Content Wrapper Start -->
+    {% if messages %}
+        <div>
+        {% for m in messages %}
+            <div class="alert alert-{{ m.tags }}">{{ m.message }}</div>
+        {% endfor %}
+        </div>
+    {% endif %}
     {% block content %}
     {% endblock content %}
 
     <!-- Main Content Wrapper Start -->
 
     <!-- Footer Start-->
-    <footer class="footer" >
+    <footer class="footer">
         <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
             <div class="container">
                 <div class="row justify-content-center">

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 import environ
+from django.contrib.messages import constants as messages
+
 
 # Initialise environment variables
 env = environ.Env()
@@ -136,7 +138,10 @@ LANGUAGE_CODE = 'fa'
 TIME_ZONE = 'Asia/Tehran'
 USE_L10N = True
 USE_I18N = True
-
+LANGUAGES = (
+    ('en','English'),
+    ('fa','Persian'),
+)
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -192,5 +197,9 @@ ACCOUNT_UNIQUE_EMAIL = True
 # locale settings
 # LOCALE_PATHS = ('templates/locale/',)
 LOCALE_PATHS = [
-       os.path.join(BASE_DIR, 'locale'),
-   ]
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
