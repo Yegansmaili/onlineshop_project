@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
+
+from cart.forms import AddToCartProductForm
 from .forms import CommentForm
 from .models import *
 
@@ -23,6 +25,7 @@ class ProductDetailView(generic.DetailView):
         # kwargs['comment_count'] = product.pro_comments.filter(is_active=True).count()   customized with template tags
         kwargs['comments'] = product.pro_comments.all().order_by('-created_at')
         kwargs['comment_form'] = CommentForm()
+        # kwargs['AddToCartProductForm']= AddToCartProductForm()
 
         return super().get_context_data(**kwargs)
 
