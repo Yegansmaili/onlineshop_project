@@ -61,12 +61,16 @@
                                                                     {% endblocktrans %}{% endwith %}</span>
                                                             </span>
                                                 </td>
+                                            <form method="post" action="{% url 'cart:cart_add' item.product_obj.pk %}">
+                                                {% csrf_token %}
                                                 <td class="product-quantity">
                                                     <div class="quantity">
-                                                        <input type="number" class="quantity-input" name="qty"
+                                                        <input type="number" class="quantity-input" name="quantity"
                                                                id="qty-1" value="{{ item.quantity }}" min="1">
                                                     </div>
-                                                </td>
+                                                    {{ item.pro_update_quantity_form.inplace }}
+                                                    <button type="submit" style="display: inline" class="fa fa-refresh btn-success"></button>
+                                                </td></form>
                                                 <td class="product-total-price">
                                                             <span class="product-price-wrapper">
                                                                 <span class="money">{% with item.product_obj.price as myprice %}
