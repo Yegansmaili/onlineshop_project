@@ -28,62 +28,76 @@
                     <div class="col-lg-8 mb-md--50">
                         <div class="row no-gutters">
                             <div class="col-12">
-                                <div class="table-content table-responsive">
-                                    <table class="table text-center">
-                                        <thead>
-                                        <tr>
-                                            <th>&nbsp;</th>
-                                            <th>{% trans 'Image' %}</th>
-                                            <th>{% trans 'Name' %}</th>
-                                            <th>{% trans 'price' %}</th>
-                                            <th>{% trans 'quantity' %}</th>
-                                            <th>{% trans 'Total' %}</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for item in cart %}
+                                {% if cart %}
+                                    <div class="table-content table-responsive">
+                                        <table class="table text-center">
+                                            <thead>
                                             <tr>
-                                                <td class="product-remove text-left"><a href="{% url 'cart:cart_remove' item.product_obj.pk%}"><i
-                                                        class="flaticon flaticon-cross"></i></a></td>
-                                                <td class="product-thumbnail text-left">
-                                                    <img src="assets/img/products/prod-10-70x88.jpg"
-                                                         alt="Product Thumnail">
-                                                </td>
-                                                <td class="product-name wide-column">
-                                                    <h3>
-                                                        <a href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
-                                                    </h3>
-                                                </td>
-                                                <td class="product-price">
-                                                            <span class="product-price-wrapper">
-                                                                <span class="money">{% with item.product_obj.price as myprice %}
-                                                                    {% blocktrans %} {{ myprice }} $
-                                                                    {% endblocktrans %}{% endwith %}</span>
-                                                            </span>
-                                                </td>
-                                            <form method="post" action="{% url 'cart:cart_add' item.product_obj.pk %}">
-                                                {% csrf_token %}
-                                                <td class="product-quantity">
-                                                    <div class="quantity">
-                                                        <input type="number" class="quantity-input" name="quantity"
-                                                               id="qty-1" value="{{ item.quantity }}" min="1">
-                                                    </div>
-                                                    {{ item.pro_update_quantity_form.inplace }}
-                                                    <button type="submit" style="display: inline" class="fa fa-refresh btn-success"></button>
-                                                </td></form>
-                                                <td class="product-total-price">
-                                                            <span class="product-price-wrapper">
-                                                                <span class="money">{% with item.product_obj.price as myprice %}
-                                                                    {% blocktrans %} {{ myprice }} $
-                                                                    {% endblocktrans %}{% endwith %}</span>
-                                                            </span>
-                                                </td>
+                                                <th>&nbsp;</th>
+                                                <th>{% trans 'Image' %}</th>
+                                                <th>{% trans 'Name' %}</th>
+                                                <th>{% trans 'price' %}</th>
+                                                <th>{% trans 'quantity' %}</th>
+                                                <th>{% trans 'Total' %}</th>
                                             </tr>
-                                        {% endfor %}
+                                            </thead>
+                                            <tbody>
+                                            {% for item in cart %}
+                                                <tr>
+                                                    <td class="product-remove text-left"><a
+                                                            href="{% url 'cart:cart_remove' item.product_obj.pk %}"><i
+                                                            class="flaticon flaticon-cross"></i></a></td>
+                                                    <td class="product-thumbnail text-left">
+                                                        <img src="assets/img/products/prod-10-70x88.jpg"
+                                                             alt="Product Thumnail">
+                                                    </td>
+                                                    <td class="product-name wide-column">
+                                                        <h3>
+                                                            <a href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
+                                                        </h3>
+                                                    </td>
+                                                    <td class="product-price text-right">
+                                                            <span class="product-price-wrapper">
+                                                                <span class="money">{% with item.product_obj.price as pro_price %}
+                                                                    {% blocktrans %} {{ pro_price }} $
+                                                                    {% endblocktrans %}{% endwith %}</span>
+                                                            </span>
+                                                    </td>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                    <td class="product-quantity">
+                                                        <form method="post"
+                                                              action="{% url 'cart:cart_add' item.product_obj.pk %}">
+                                                            {% csrf_token %}
+                                                            <div class="quantity">
+                                                                <input type="number" class="quantity-input"
+                                                                       name="quantity"
+                                                                       id="qty-1" value="{{ item.quantity }}" min="1">
+                                                            </div>
+                                                            {{ item.pro_update_quantity_form.inplace }}
+                                                            <button type="submit"
+                                                                    class=" btn-danger d-inline"><i
+                                                                    class="fa fa-refresh"></i>{% trans ' Update ' %}
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                    <td class="product-total-price">
+                                                            <span class="product-price-wrapper">
+                                                                <span class="money">{% with item.total_price as total_price %}
+                                                                    {% blocktrans %} {{ total_price }} $
+                                                                    {% endblocktrans %}{% endwith %}</span>
+                                                            </span>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                {% else %}
+                                    <div class="text-lg-center ">
+                                    <h3 class="text-lg-center ">{% trans '! The cart is empty ' %}</h3>
+                                    <a href="{% url 'product_list' %}" class="text-danger">{% trans 'Go shopping' %}</a></div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="row no-gutters border-top pt--20 mt--20">
@@ -95,14 +109,17 @@
                     <div class="col-lg-4">
                         <div class="cart-collaterals">
                             <div class="cart-totals">
-                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
+                                {#                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>#}
                                 <div class="cart-calculator">
                                     <div class="cart-calculator__item">
                                         <div class="cart-calculator__item--head">
-                                            <span>مجموع</span>
+                                            <span>{% trans 'Total price' %}</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
-                                            <span>۳۴۶,۰۰۰ تومان</span>
+                                            <span>{% with cart.get_total_price as total %}
+                                                {% blocktrans %}{{ total }} $ {% endblocktrans %}
+                                            {% endwith %}
+                                            </span>
                                         </div>
                                     </div>
                                     {#                                        <div class="cart-calculator__item order-total">#}
