@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -97,18 +98,29 @@
                                     <i class="flaticon flaticon-user"></i>
                                 </a>
                                 <ul class="user-info-menu">
-                                    <li>
-                                        <a class="text-right" href="my-account.html">حساب کاربری</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="cart.html">سبد خرید</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
-                                    </li>
+                                    {% if user.is_authenticated %}
+                                        <li>
+                                            <a class="text-right" href="{% url 'account_logout' %}">{% trans 'log out' %}</a>
+                                        </li>
+                                         <li>
+                                            <a class="text-right" href="my-account.html">{% trans 'profile' %}</a>
+                                        </li>
+
+                                    {% else %}
+                                        <li>
+                                            <a class="text-right"
+                                               href="{% url 'account_login' %}">{% trans 'login' %}</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right"
+                                               href="{% url 'account_signup' %}">{% trans 'sign up' %}</a>
+                                        </li>
+
+
+
+                                    {% endif %}
+
+
                                 </ul>
                             </li>
                             <li class="header-toolbar__item">
@@ -131,9 +143,9 @@
     <!-- Main Content Wrapper Start -->
     {% if messages %}
         <div>
-        {% for m in messages %}
-            <div class="alert alert-{{ m.tags }}">{{ m.message }}</div>
-        {% endfor %}
+            {% for m in messages %}
+                <div class="alert alert-{{ m.tags }}">{{ m.message }}</div>
+            {% endfor %}
         </div>
     {% endif %}
     {% block content %}

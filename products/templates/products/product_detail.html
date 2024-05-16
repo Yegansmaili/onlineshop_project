@@ -45,10 +45,11 @@
 
                             <form method="post" action="{% url 'cart:cart_add' product.id %}">
                                 {% csrf_token %}
-                                       <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                     <div class="quantity-wrapper d-flex justify-content-start">
                                         <div class="quantity">
-                                            <input type="number" class="quantity-input" name="quantity" id="qty" value="1" min="1">
+                                            <input type="number" class="quantity-input" name="quantity" id="qty"
+                                                   value="1" min="1">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
@@ -159,27 +160,36 @@
                                         <div class="row">
                                             <div class="border-top py-5 w-100"></div>
                                             <div class="col-lg-8 m-auto">
-                                                <span class="reply-title pull-right">{% trans 'Write your comment' %}</span>
-                                                <br>
-                                                <form action="{% url 'comment_create' product.pk %}"
-                                                      class="form text-right" method="post">
-                                                    {% csrf_token %}
-                                                    <div class="form-notes mb--20">
-                                                        <p class="my-3"><span class="required">*</span>ایمیل شما
-                                                            برای دیگران نشان داده نمیشود.</p>
-                                                    </div>
 
-                                                    {{ comment_form|crispy }}
+                                                {% if user.is_authenticated %}
+                                                    <span class="reply-title pull-right">{% trans 'Write your comment' %}</span>
+                                                    <br>
+                                                    <form action="{% url 'comment_create' product.pk %}"
+                                                          class="form text-right" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="form-notes mb--20">
+                                                            <p class="my-3"><span class="required">*</span>ایمیل شما
+                                                                برای دیگران نشان داده نمیشود.</p>
+                                                        </div>
 
-                                                    <div class="form__group">
-                                                        <div class="form-row">
-                                                            <div class="col-12">
-                                                                <input type="submit" value="{% trans 'submit' %}"
-                                                                       class="btn-submit">
+                                                        {{ comment_form|crispy }}
+
+                                                        <div class="form__group">
+                                                            <div class="form-row">
+                                                                <div class="col-12">
+                                                                    <input type="submit" value="{% trans 'submit' %}"
+                                                                           class="btn-submit">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                {% else %}
+                                                     <span class="reply-title pull-right">{% trans 'To write your comment please' %}
+                                                        <a href="{% url 'account_login' %}">{% trans 'login' %}</a> {% trans 'or' %}
+                                                        <a href="{% url 'account_signup' %}">{% translate 'sign up' %}</a>
+                                                     </span>
+                                                {% endif %}
+
                                             </div>
                                         </div>
                                     </div>
