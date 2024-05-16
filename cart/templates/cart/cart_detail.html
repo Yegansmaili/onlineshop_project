@@ -95,14 +95,19 @@
                                     </div>
                                 {% else %}
                                     <div class="text-lg-center ">
-                                    <h3 class="text-lg-center ">{% trans '! The cart is empty ' %}</h3>
-                                    <a href="{% url 'product_list' %}" class="text-danger">{% trans 'Go shopping' %}</a></div>
+                                        <h3 class="text-lg-center ">{% trans '! The cart is empty ' %}</h3>
+                                        <a href="{% url 'product_list' %}"
+                                           class="text-danger">{% trans 'Go shopping' %}</a></div>
                                 {% endif %}
                             </div>
                         </div>
                         <div class="row no-gutters border-top pt--20 mt--20">
                             <div class="col-sm-6 text-sm-right">
-                                <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                                <form method="post" action="{% url 'cart:clear_cart' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+
+                                </form>
                             </div>
                         </div>
                     </div>

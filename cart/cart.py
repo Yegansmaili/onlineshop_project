@@ -1,4 +1,6 @@
 from products.models import Product
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 class Cart:
@@ -27,8 +29,7 @@ class Cart:
             self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
-        # else:
-        #     self.cart[product_id]['quantity'] += quantity
+        messages.success(self.request, _('your product has successfully been added'))
 
         self.save()
 
@@ -39,6 +40,7 @@ class Cart:
         product_id = str(product.id)
         if product_id in self.cart:
             del self.cart[product_id]
+            messages.success(self.request, _('your product has been successfully removed'))
             self.save()
 
     def __iter__(self):
@@ -64,13 +66,15 @@ class Cart:
         removing the cart from the session
         """
         del self.session['cart']
+        messages.success(self.request, _('your cart has been successfully removed'))
+
         self.save()
 
     def get_total_price(self):
         # product_ids = self.cart.keys()
         # products = Product.objects.filter(id__in=product_ids)
 
-        return sum(item['quantity']*item['product_obj'].price for item in self.cart.values())
+        return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
         # total_price = 0
         #
         # for item in self.cart.keys():
