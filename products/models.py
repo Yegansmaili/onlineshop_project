@@ -32,6 +32,7 @@ class Product(BaseModel):
     description = models.TextField()
     price = models.PositiveIntegerField(default=0)
     status = models.CharField(choices=STATUS_CHOICES, max_length=15, default='available', null=True, blank=True)
+    cover = models.ImageField(upload_to='product/covers/', null=True, blank=True)
 
     def __str__(self):
         return self.title

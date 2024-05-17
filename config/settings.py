@@ -14,7 +14,6 @@ from pathlib import Path
 import environ
 from django.contrib.messages import constants as messages
 
-
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
@@ -85,7 +84,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # 'django.template.context_processors.request',
-                #custom context_processors
+                # custom context_processors
                 'cart.context_processors.cart',
 
             ],
@@ -142,8 +141,8 @@ TIME_ZONE = 'Asia/Tehran'
 USE_L10N = True
 USE_I18N = True
 LANGUAGES = (
-    ('en','English'),
-    ('fa','Persian'),
+    ('en', 'English'),
+    ('fa', 'Persian'),
 )
 USE_TZ = True
 
@@ -164,8 +163,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 # Authentication_settings
 AUTH_USER_MODEL = 'accounts.CustomUser'

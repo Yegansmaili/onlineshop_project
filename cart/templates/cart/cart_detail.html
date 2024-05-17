@@ -39,8 +39,15 @@
                                                             href="{% url 'cart:cart_remove' item.product_obj.pk %}"><i
                                                             class="flaticon flaticon-cross"></i></a></td>
                                                     <td class="product-thumbnail text-left">
-                                                        <img src="assets/img/products/prod-10-70x88.jpg"
-                                                             alt="Product Thumnail">
+                                                        {% if item.product_obj.cover %}
+                                                            <img class="m-auto" style="max-height: 400px;"
+                                                                 src="{{ item.product_obj.cover.url }}"
+                                                                 alt="">
+                                                        {% else %}
+                                                            <img class="m-auto" style="max-height: 400px;"
+                                                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
+                                                                 alt="">
+                                                        {% endif %}
                                                     </td>
                                                     <td class="product-name wide-column">
                                                         <h3>

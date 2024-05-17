@@ -34,8 +34,15 @@
                                                 <div class="product-inner">
                                                     <figure class="product-image">
                                                         <a href="{{ pro.get_absolute_url }}">
-                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"
-                                                                 alt="Products">
+                                                            {% if pro.cover %}
+                            <img class="m-auto" style="max-height: 400px;"
+                                 src="{{ pro.cover.url }}"
+                                 alt="">
+                            {% else %}
+                            <img class="m-auto" style="max-height: 400px;"
+                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
+                                 alt="">
+                        {% endif %}
                                                         </a>
                                                         <div class="ShoppingYar-product-action">
                                                             <div class="product-action d-flex">

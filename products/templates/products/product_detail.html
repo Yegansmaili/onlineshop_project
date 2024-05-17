@@ -7,7 +7,7 @@
 
 
 {% block content %}
-{% include 'includes/topheader.html' with header_name=product.title %}
+    {% include 'includes/topheader.html' with header_name=product.title %}
 
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
@@ -15,9 +15,16 @@
             <div class="container">
                 <div class="row no-gutters mb--80">
                     <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
-                        <img class="m-auto" style="max-height: 400px;"
-                             src="https://dkstatics-public.digikala.com/digikala-products/8f34ee9823202d09ee97deb9b1c8e3300a9a24d8_1643265727.jpg?x-oss-process=image/resize,w_1600/quality,q_80"
-                             alt="">
+                        {% if product.cover %}
+                            <img class="m-auto" style="max-height: 400px;"
+                                 src="{{ product.cover.url }}"
+                                 alt="">
+                            {% else %}
+                            <img class="m-auto" style="max-height: 400px;"
+                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
+                                 alt="">
+                        {% endif %}
+
                     </div>
                     <div class="col-12 col-sm-8 product-main-details mt-md--50">
                         <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
@@ -172,7 +179,7 @@
                                                         </div>
                                                     </form>
                                                 {% else %}
-                                                     <span class="reply-title pull-right">{% trans 'To write your comment please' %}
+                                                    <span class="reply-title pull-right">{% trans 'To write your comment please' %}
                                                         <a href="{% url 'account_login' %}">{% trans 'login' %}</a> {% trans 'or' %}
                                                         <a href="{% url 'account_signup' %}">{% translate 'sign up' %}</a>
                                                      </span>

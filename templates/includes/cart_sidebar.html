@@ -11,8 +11,16 @@
                     {% for item in cart %}
                         <li class="mini-cart__product d-flex justify-content-between">
                             <div class="mini-cart__product__image">
-                                <a href="#">
-                                    <img src="{% static 'img/products/prod-1-100x100.jpg' %}" alt="products">
+                                <a href="{{ item.product_obj.get_absolute_url }}">
+                                     {% if item.product_obj.cover %}
+                                                            <img class="m-auto" style="max-height: 400px;"
+                                                                 src="{{ item.product_obj.cover.url }}"
+                                                                 alt="">
+                                                        {% else %}
+                                                            <img class="m-auto" style="max-height: 400px;"
+                                                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
+                                                                 alt="">
+                                                        {% endif %}
                                 </a>
                             </div>
                             <div class="mini-cart__product__content pt-2">
