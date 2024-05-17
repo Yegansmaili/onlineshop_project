@@ -18,7 +18,7 @@
                             <div class="mini-cart__product__content pt-2">
                                     <span class="mini-cart__product__title d-flex flex-row justify-content-between">
                                         <a href="#">{{ item.product_obj.title }} </a>
-                                        <a href="#" class="">
+                                        <a href="{% url 'cart:cart_remove' item.product_obj.pk %}" class="">
                                             &#10060;
                                         </a>
                                     </span>
