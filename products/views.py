@@ -19,6 +19,7 @@ class ProductListView(generic.ListView):
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'products/product_detail.html'
+    context_object_name = 'product'
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
@@ -39,7 +40,7 @@ class CommentCreateView(generic.CreateView):
         pro_id = int(self.kwargs['pk'])
         product = get_object_or_404(Product, pk=pro_id)
         neww.commented_product = product
-        messages.success(self.request,_('your comment has been successfully sent'))
+        messages.success(self.request, _('your comment has been successfully sent'))
         return super().form_valid(form)
 
 # def product_detail_view(request, pk):

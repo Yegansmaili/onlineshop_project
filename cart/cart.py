@@ -59,7 +59,7 @@ class Cart:
         """
         getting the length of the cart (how many products are in there)?
         """
-        return len(self.cart.keys())
+        return sum(item['quantity'] for item in self.cart.values())
 
     def clear(self):
         """

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 02:39+0330\n"
+"POT-Creation-Date: 2024-05-17 21:31+0330\n"
 "PO-Revision-Date: 2024-04-19 16:39+0330\n"
 "Last-Translator:   <uniquesmaili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: templates/_base.html:103
+#: templates/_base.html:104
 msgid "log out"
 msgstr "خروج"
 
-#: templates/_base.html:106
+#: templates/_base.html:107
 msgid "profile"
 msgstr "حساب کاربری"
 
-#: templates/_base.html:112
+#: templates/_base.html:113
 msgid "login"
 msgstr "ورود"
 
-#: templates/_base.html:116
+#: templates/_base.html:117
 msgid "sign up"
 msgstr "ثبت نام"
 
@@ -101,6 +101,23 @@ msgstr ""
 #: templates/account/password_reset_from_key_done.html:13
 msgid "your password has reset successfully"
 msgstr "رمز عبور شما با موفقیت تغییر یافت"
+
+#: templates/includes/cart_sidebar.html:34
+msgid "Total"
+msgstr "مجموع"
+
+#: templates/includes/cart_sidebar.html:36
+#, python-format
+msgid "%(total)s $ "
+msgstr "%(total)s تومان"
+
+#: templates/includes/cart_sidebar.html:41
+msgid "view cart"
+msgstr "مشاهده سبد خرید"
+
+#: templates/includes/topheader.html:9
+msgid "Detail of"
+msgstr "جزئیات"
 
 #: venv/lib/python3.10/site-packages/django/contrib/messages/apps.py:16
 msgid "Messages"
