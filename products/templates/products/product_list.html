@@ -1,7 +1,11 @@
 {% extends '_base.html' %}
 {% load static %}
 {% load i18n %}
+{% load persian_translate_tags %}
+{% load humanize %}
+
 {% block title %}Products{% endblock %}
+
 {% block content %}
 
     <!-- Main Content Wrapper Start -->
@@ -58,7 +62,7 @@
                                                             <a href="{{ pro.get_absolute_url }}">{{ pro.title }}</a>
                                                         </h3>
                                                         <div class="product-price-wrapper mb--30">
-                                                            <span class="money">{{ pro.price }} تومان</span>
+                                                            <span class="money">{{ pro.price|intcomma:False|number_translate }} تومان</span>
                                                         </div>
                                                         {#                                                        <div class="product-price-wrapper mb--30">#}
                                                         {#                                                            <span class="money text-success">{{ pro.price }} تومان</span>#}

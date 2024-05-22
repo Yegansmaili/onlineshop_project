@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
+from ckeditor.fields import RichTextField
 
 class ActiveDisplayManager(models.Manager):
 
@@ -13,7 +14,7 @@ class ActiveDisplayManager(models.Manager):
 class BaseModel(models.Model):
     objects = models.Manager()
     active_display_manager = ActiveDisplayManager()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
@@ -29,7 +30,7 @@ class Product(BaseModel):
 
     )
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     price = models.PositiveIntegerField(default=0)
     status = models.CharField(choices=STATUS_CHOICES, max_length=15, default='available', null=True, blank=True)
     cover = models.ImageField(upload_to='product/covers/', null=True, blank=True)

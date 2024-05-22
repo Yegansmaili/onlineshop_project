@@ -3,6 +3,10 @@
 {% load static %}
 {% load comment_tags %}
 {% load i18n %}
+{% load jalali_tags %}
+{% load persian_translate_tags %}
+{% load humanize %}
+
 {% block title %} {% trans 'product' %} {{ product.title }}{% endblock %}
 
 
@@ -33,7 +37,7 @@
                             {#                                {{ product.description }}#}
                             {#                            </p>#}
                             <div class="my-5 py-5 product-price-wrapper mb--25">
-                                <span class="money text-success">{{ product.price }} {% trans '$' %}</span>
+                                <span class="money text-success">{{ product.price|intcomma:False|number_translate }} {% trans '$' %}</span>
                                 {#                                <span class="price-separator">-</span>#}
                                 {#                                <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>#}
                             </div>
@@ -84,8 +88,8 @@
                         <div class="tab-content product-data-tab__content" id="product-tabContent">
                             <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
                                  aria-labelledby="nav-description-tab">
-                                <div class="product-description text-justify">
-                                    <p>{{ product.description|linebreaks }}</p>
+                                <div class="product-description text-justify text-right  m-5" dir="ltr">
+                                    <p>{{ product.description|safe|linebreaks }}</p>
 
 
                                 </div>
@@ -128,10 +132,10 @@
                                                             {#                                                            <img src="assets/img/others/comment-1.jpg"#}
                                                             {#                                                                 alt="Review Avatar" class="review__avatar">review__avatar#}
                                                             <div>
-                                                                <div class="review__meta">
-                                                                    <strong class="review__author px-4">{{ comment.user.username }}</strong>
+                                                                <div class="review__meta" >
+                                                                    <strong class="review__author px-4" dir="ltr">{{ comment.user.username }}</strong>
                                                                     <span class="review__dash">-</span>
-                                                                    <span class="review__published-date">{{ comment.updated_at }}</span>
+                                                                    <span class="review__published-date" dir="ltr">{{ comment.created_at|to_jalali:'%Y/%B/%d'|number_translate}}</span>
                                                                 </div>
                                                                 <div class="product-rating">
                                                                     {{ comment.get_stars_display }}

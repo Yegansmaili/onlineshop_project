@@ -48,12 +48,17 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'rosetta',
+    'jalali_date',
+    'django.contrib.humanize',
+    'ckeditor',
 
     # local apps
     'accounts',
     'pages',
     'products',
-    'cart'
+    'cart',
+    'persian_translation',
+
 ]
 
 MIDDLEWARE = [
@@ -162,6 +167,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
