@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 
+
 class ActiveDisplayManager(models.Manager):
 
     def get_queryset(self):
@@ -14,9 +15,9 @@ class ActiveDisplayManager(models.Manager):
 class BaseModel(models.Model):
     objects = models.Manager()
     active_display_manager = ActiveDisplayManager()
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(default=timezone.now,verbose_name=_('creation time'))
+    updated_at = models.DateTimeField(auto_now=True,verbose_name=_('modified time'))
+    is_active = models.BooleanField(default=True,verbose_name=_('activity status'))
 
 
 class Product(BaseModel):
@@ -29,11 +30,13 @@ class Product(BaseModel):
         ('Limited', _('Limited'))
 
     )
-    title = models.CharField(max_length=100)
-    description = RichTextField()
-    price = models.PositiveIntegerField(default=0)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=15, default='available', null=True, blank=True)
-    cover = models.ImageField(upload_to='product/covers/', null=True, blank=True)
+    title = models.CharField(max_length=100,verbose_name=_('title'))
+    description = RichTextField(verbose_name=_('description'))
+    short_description = RichTextField(max_length=300, blank=True, null=True,verbose_name=_('short description'))
+    price = models.PositiveIntegerField(default=0,verbose_name=_('price'))
+    status = models.CharField(choices=STATUS_CHOICES, max_length=15, default='available', null=True, blank=True,
+                              verbose_name=_('status'))
+    cover = models.ImageField(upload_to='product/covers/', null=True, blank=True, verbose_name=_('cover'))
 
     def __str__(self):
         return self.title
@@ -55,7 +58,8 @@ class Comment(BaseModel):
     )
     commented_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='pro_comments')
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='user_comments',
-                             verbose_name='comment author')
+                             verbose_name=_('comment author'))
+
     text = models.TextField(verbose_name=_('comment text'))
     stars = models.CharField(choices=PRODUCT_STARS, max_length=2, verbose_name=_('What is your score?'))
 

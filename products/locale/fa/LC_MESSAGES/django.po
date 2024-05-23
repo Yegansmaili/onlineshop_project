@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 21:31+0330\n"
+"POT-Creation-Date: 2024-05-23 17:00+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,100 +18,142 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: products/models.py:23
+#: models.py:18
+msgid "creation time"
+msgstr "تاریخ ایجاد محصول"
+
+#: models.py:19
+msgid "modified time"
+msgstr "تاریخ ویرایش محصول"
+
+#: models.py:20
+msgid "activity status"
+msgstr "وضعیت فعالیت"
+
+#: models.py:25
 msgid "available"
 msgstr "موجود"
 
-#: products/models.py:24
+#: models.py:26
 msgid "Out of stock"
 msgstr "ناموجود"
 
-#: products/models.py:25
+#: models.py:27
 msgid "new"
 msgstr "جدید"
 
-#: products/models.py:26
+#: models.py:28
 msgid "preparing"
 msgstr "در حال آماده سازی"
 
-#: products/models.py:27
+#: models.py:29
 msgid "charged"
 msgstr "شارژ شده"
 
-#: products/models.py:28
+#: models.py:30
 msgid "Limited"
 msgstr "محدود"
 
-#: products/models.py:48
+#: models.py:33
+msgid "title"
+msgstr "عنوان محصول"
+
+#: models.py:34
+msgid "description"
+msgstr "ویژگی محصول"
+
+#: models.py:35
+msgid "short description"
+msgstr "توصیف کوتاه محصول"
+
+#: models.py:36
+msgid "price"
+msgstr "قیمت"
+
+#: models.py:38
+msgid "status"
+msgstr "وضعیت"
+
+#: models.py:39
+msgid "cover"
+msgstr "عکس محصول"
+
+#: models.py:53
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: products/models.py:49
+#: models.py:54
 msgid "Bad"
 msgstr "بد"
 
-#: products/models.py:50
+#: models.py:55
 msgid "Normal"
 msgstr "معمولی"
 
-#: products/models.py:51
+#: models.py:56
 msgid "Good"
 msgstr "خوب"
 
-#: products/models.py:52
+#: models.py:57
 msgid "Very Good"
 msgstr "عالی"
 
-#: products/models.py:57
+#: models.py:61
+#, fuzzy
+#| msgid "comment text"
+msgid "comment author"
+msgstr "متن دیدگاه شما"
+
+#: models.py:63
 msgid "comment text"
 msgstr "متن دیدگاه شما"
 
-#: products/models.py:58
+#: models.py:64
 msgid "What is your score?"
 msgstr "امتیاز شما به این محصول :"
 
-#: products/templates/products/product_detail.html:6
+#: templates/products/product_detail.html:10
 msgid "product"
 msgstr "محصول"
 
-#: products/templates/products/product_detail.html:29
+#: templates/products/product_detail.html:40
 msgid "$"
 msgstr "تومان"
 
-#: products/templates/products/product_detail.html:44
-#: products/templates/products/product_list.html:69
+#: templates/products/product_detail.html:55
+#: templates/products/product_list.html:80
 msgid "add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: products/templates/products/product_detail.html:74
+#: templates/products/product_detail.html:85
 msgid "comments"
 msgstr "نظرات"
 
-#: products/templates/products/product_detail.html:153
+#: templates/products/product_detail.html:164
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: products/templates/products/product_detail.html:168
+#: templates/products/product_detail.html:179
 msgid "submit"
 msgstr "ثبت"
 
-#: products/templates/products/product_detail.html:175
+#: templates/products/product_detail.html:186
 msgid "To write your comment please"
 msgstr "برای اینکه نظر خود را ثبت کنید لطفا"
 
-#: products/templates/products/product_detail.html:176
+#: templates/products/product_detail.html:187
 msgid "login"
 msgstr "وارد اکانت شوید"
 
-#: products/templates/products/product_detail.html:176
+#: templates/products/product_detail.html:187
 msgid "or"
 msgstr "یا"
 
-#: products/templates/products/product_detail.html:177
+#: templates/products/product_detail.html:188
 msgid "sign up"
 msgstr "ثبت نام کنید"
 
-#: products/views.py:43
+#: views.py:43
 msgid "your comment has been successfully sent"
 msgstr "متشکریم از دیدگاه شما"
 
