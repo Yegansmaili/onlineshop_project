@@ -188,9 +188,10 @@
                                                         </div>
                                                     </form>
                                                 {% else %}
-                                                    <span class="reply-title pull-right">{% trans 'To write your comment please' %}
-                                                        <a href="{% url 'account_login' %}">{% trans 'login' %}</a> {% trans 'or' %}
-                                                        <a href="{% url 'account_signup' %}">{% translate 'sign up' %}</a>
+                                                    <span class="reply-title pull-right">{% trans 'To write your comment please login or signup' %}
+                                                        <br>
+                                                        <a href="{% url 'account_login' %}">{% trans 'login' %}</a>
+
                                                      </span>
                                                 {% endif %}
 
