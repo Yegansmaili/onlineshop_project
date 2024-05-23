@@ -11,7 +11,10 @@
 
 
 {% block content %}
-    {% include 'includes/topheader.html' with header_name=product.title %}
+    {% trans 'Detail of the ' as x %}
+    {% with header_name=x|add:product.title %}
+        {% include 'includes/topheader.html' with header_name=header_name %}
+    {% endwith %}
 
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
@@ -23,7 +26,7 @@
                             <img class="m-auto" style="max-height: 400px;"
                                  src="{{ product.cover.url }}"
                                  alt="">
-                            {% else %}
+                        {% else %}
                             <img class="m-auto" style="max-height: 400px;"
                                  src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
                                  alt="">
@@ -33,9 +36,9 @@
                     <div class="col-12 col-sm-8 product-main-details mt-md--50">
                         <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
                             <h3 class="product-title mb--20">{{ product.title }}</h3>
-                                                        <p class="product-short-description mb--20">
-                                                            {{ product.short_description|safe|linebreaks|truncatechars:300 }}
-                                                        </p>
+                            <p class="product-short-description mb--20">
+                                {{ product.short_description|safe|linebreaks|truncatechars:300 }}
+                            </p>
                             <div class="my-5 py-5 product-price-wrapper mb--25">
                                 <span class="money text-success">{{ product.price|intcomma:False|number_translate }} {% trans '$' %}</span>
                                 {#                                <span class="price-separator">-</span>#}
@@ -132,10 +135,12 @@
                                                             {#                                                            <img src="assets/img/others/comment-1.jpg"#}
                                                             {#                                                                 alt="Review Avatar" class="review__avatar">review__avatar#}
                                                             <div>
-                                                                <div class="review__meta" >
-                                                                    <strong class="review__author px-4" dir="ltr">{{ comment.user.username }}</strong>
+                                                                <div class="review__meta">
+                                                                    <strong class="review__author px-4"
+                                                                            dir="ltr">{{ comment.user.username }}</strong>
                                                                     <span class="review__dash">-</span>
-                                                                    <span class="review__published-date" dir="ltr">{{ comment.created_at|to_jalali:'%Y/%B/%d'|number_translate}}</span>
+                                                                    <span class="review__published-date"
+                                                                          dir="ltr">{{ comment.created_at|to_jalali:'%Y/%B/%d'|number_translate }}</span>
                                                                 </div>
                                                                 <div class="product-rating">
                                                                     {{ comment.get_stars_display }}

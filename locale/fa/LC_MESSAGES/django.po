@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-17 21:31+0330\n"
+"POT-Creation-Date: 2024-05-23 20:23+0330\n"
 "PO-Revision-Date: 2024-04-19 16:39+0330\n"
 "Last-Translator:   <uniquesmaili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "حساب کاربری"
 msgid "login"
 msgstr "ورود"
 
-#: templates/_base.html:117
+#: templates/_base.html:117 templates/account/signup.html:13
 msgid "sign up"
 msgstr "ثبت نام"
 
@@ -83,6 +83,10 @@ msgid ""
 msgstr ""
 
 #: templates/account/login.html:10
+msgid "Don't you have an account?"
+msgstr "حساب کاربری ندارید؟"
+
+#: templates/account/login.html:12
 msgid "Login"
 msgstr "عضویت"
 
@@ -102,22 +106,77 @@ msgstr ""
 msgid "your password has reset successfully"
 msgstr "رمز عبور شما با موفقیت تغییر یافت"
 
-#: templates/includes/cart_sidebar.html:34
+#: templates/account/signup.html:11
+msgid "Already have an account?"
+msgstr "حساب کاربری قبلا درست کردید؟"
+
+#: templates/includes/cart_sidebar.html:46
 msgid "Total"
 msgstr "مجموع"
 
-#: templates/includes/cart_sidebar.html:36
+#: templates/includes/cart_sidebar.html:48
 #, python-format
 msgid "%(total)s $ "
 msgstr "%(total)s تومان"
 
-#: templates/includes/cart_sidebar.html:41
+#: templates/includes/cart_sidebar.html:53
 msgid "view cart"
 msgstr "مشاهده سبد خرید"
 
 #: templates/includes/topheader.html:9
 msgid "Detail of"
 msgstr "جزئیات"
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/forms.py:6
+msgid "Search files"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
+msgid "Select an image to embed"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:50
+msgid "Images in: "
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:62
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:80
+msgid "Embed Image"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:146
+msgid "Play Slideshow"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:147
+msgid "Pause Slideshow"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:150
+msgid "Next &rsaquo;"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:151
+msgid "&lsaquo; Prev"
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/contrib/messages/apps.py:16
 msgid "Messages"
@@ -753,6 +812,8 @@ msgid "Currently"
 msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/forms/widgets.py:463
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_stacked.html:12
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_tabular.html:34
 msgid "Change"
 msgstr ""
 
@@ -1331,4 +1392,26 @@ msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:248
 msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_stacked.html:12
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_tabular.html:34
+msgid "View"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_stacked.html:14
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_tabular.html:36
+msgid "View on site"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/jalali_date/templates/admin/edit_inline/jalali_tabular.html:20
+msgid "Delete?"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/jalali_date/widgets.py:49
+msgid "Date:"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/jalali_date/widgets.py:49
+msgid "Time:"
 msgstr ""

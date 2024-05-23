@@ -1,7 +1,9 @@
 {% extends '_base.html' %}
-{% block title %}login{% endblock %}
+{% block title %}Logout{% endblock %}
 
 {% block content %}
+     {% trans 'logout' as x %}
+        {% include 'includes/topheader.html' with header_name=x %}
          <div class="container">
         <div class="row">
             <div class="col-12 ptb--80 ">
