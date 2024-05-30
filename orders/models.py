@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-
+from django.utils.translation import gettext_lazy as _
 from products.models import Product
 
 
@@ -12,7 +12,8 @@ class Order(models.Model):
     last_name = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=15)  # phone_number field
     address = models.CharField(max_length=700)
-    order_note = models.CharField(max_length=1000, blank=True, null=True)
+    order_note = models.CharField(max_length=1000, blank=True, null=True,
+                                  help_text=_('If you have a note, write here. Otherwise, leave it blank. '))
     order_created = models.DateTimeField(default=timezone.now)
     order_modified = models.DateTimeField(auto_now=True)
 
@@ -28,5 +29,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'order item {self.id} : {self.product}'
-
-

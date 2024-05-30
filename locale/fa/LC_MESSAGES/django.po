@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 20:23+0330\n"
+"POT-Creation-Date: 2024-05-30 23:44+0330\n"
 "PO-Revision-Date: 2024-04-19 16:39+0330\n"
 "Last-Translator:   <uniquesmaili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,11 +27,12 @@ msgstr "خروج"
 msgid "profile"
 msgstr "حساب کاربری"
 
-#: templates/_base.html:113
+#: templates/_base.html:113 templates/account/login.html:7
 msgid "login"
 msgstr "ورود"
 
-#: templates/_base.html:117 templates/account/signup.html:13
+#: templates/_base.html:117 templates/account/signup.html:8
+#: templates/account/signup.html:16
 msgid "sign up"
 msgstr "ثبت نام"
 
@@ -82,13 +83,17 @@ msgid ""
 "href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 
-#: templates/account/login.html:10
+#: templates/account/login.html:13
 msgid "Don't you have an account?"
 msgstr "حساب کاربری ندارید؟"
 
-#: templates/account/login.html:12
+#: templates/account/login.html:15
 msgid "Login"
 msgstr "عضویت"
+
+#: templates/account/logout.html:5
+msgid "logout"
+msgstr ""
 
 #: templates/account/password_change_done.html:7
 msgid "Password Change Successful"
@@ -106,7 +111,7 @@ msgstr ""
 msgid "your password has reset successfully"
 msgstr "رمز عبور شما با موفقیت تغییر یافت"
 
-#: templates/account/signup.html:11
+#: templates/account/signup.html:14
 msgid "Already have an account?"
 msgstr "حساب کاربری قبلا درست کردید؟"
 
@@ -122,10 +127,6 @@ msgstr "%(total)s تومان"
 #: templates/includes/cart_sidebar.html:53
 msgid "view cart"
 msgstr "مشاهده سبد خرید"
-
-#: templates/includes/topheader.html:9
-msgid "Detail of"
-msgstr "جزئیات"
 
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/forms.py:6
 msgid "Search files"
@@ -1415,3 +1416,6 @@ msgstr ""
 #: venv/lib/python3.10/site-packages/jalali_date/widgets.py:49
 msgid "Time:"
 msgstr ""
+
+#~ msgid "Detail of"
+#~ msgstr "جزئیات"

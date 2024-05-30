@@ -66,7 +66,7 @@ class Cart:
         removing the cart from the session
         """
         del self.session['cart']
-        messages.success(self.request, _('your cart has been successfully removed'))
+        # messages.success(self.request, _('your cart has been successfully removed'))
 
         self.save()
 
