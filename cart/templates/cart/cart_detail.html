@@ -103,6 +103,7 @@
                                 {% endif %}
                             </div>
                         </div>
+                    {% if cart %}
                         <div class="row no-gutters border-top pt--20 mt--20">
                             <div class="col-sm-6 text-sm-right">
                                 <form method="post" action="{% url 'cart:clear_cart' %}">
@@ -112,8 +113,11 @@
                                 </form>
                             </div>
                         </div>
+                    {% endif %}
+
                     </div>
                     <div class="col-lg-4">
+                      {% if cart %}
                         <div class="cart-collaterals">
                             <div class="cart-totals">
                                 {#                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>#}
@@ -141,9 +145,12 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                            ثبت سفارش
+
+                        <a href="{% url 'orders:order_create' %}" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                            {% trans 'checkout' %}
                         </a>
+                    {% endif %}
+
                     </div>
                 </div>
             </div>

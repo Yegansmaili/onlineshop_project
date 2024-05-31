@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 00:26+0330\n"
+"POT-Creation-Date: 2024-05-31 14:49+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,60 +18,67 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: orders/models.py:16
+#: models.py:16
 msgid "If you have a note, write here. Otherwise, leave it blank. "
 msgstr ""
 "اگر یادداشتی دارید در اینجا وارد کنید. در غیر این صورت این مکان را خالی "
 "بگذارید"
 
-#: orders/templates/orders/order_create.html:10
+#: templates/orders/order_create.html:10
 msgid "order detail"
 msgstr "جزئیات سفارش"
 
-#: orders/templates/orders/order_create.html:14
+#: templates/orders/order_create.html:14
 msgid "Order Detail of Dear "
 msgstr "جزئیات سفارش کاربر "
 
-#: orders/templates/orders/order_create.html:36
+#: templates/orders/order_create.html:37
 msgid "name"
 msgstr "نام"
 
-#: orders/templates/orders/order_create.html:42
+#: templates/orders/order_create.html:48
 msgid "last name"
 msgstr "نام خانوادگی"
 
-#: orders/templates/orders/order_create.html:50
+#: templates/orders/order_create.html:60
 msgid "address"
 msgstr "آدرس"
 
-#: orders/templates/orders/order_create.html:58
+#: templates/orders/order_create.html:72
 msgid "phone"
 msgstr "تلفن همراه"
 
-#: orders/templates/orders/order_create.html:74
-
+#: templates/orders/order_create.html:92
 msgid "your note"
 msgstr "یادداشت شما"
 
-#: orders/templates/orders/order_create.html:80
+#: templates/orders/order_create.html:98
 msgid "submit"
 msgstr "ارسال"
 
-#: orders/templates/orders/order_create.html:87
+#: templates/orders/order_create.html:105
 msgid "your order"
 msgstr "سفارش شما"
 
-#: orders/templates/orders/order_create.html:93
+#: templates/orders/order_create.html:111
 msgid "product"
 msgstr "محصول"
 
-#: orders/templates/orders/order_create.html:94
-#: orders/templates/orders/order_create.html:114
+#: templates/orders/order_create.html:112
+#: templates/orders/order_create.html:133
 msgid "total"
 msgstr "قیمت نهایی"
 
-#: orders/templates/orders/order_create.html:105
-#: orders/templates/orders/order_create.html:117
+#: templates/orders/order_create.html:124
+#: templates/orders/order_create.html:136
 #, python-format
 msgid "%(price)s $"
 msgstr "%(price)s تومان"
+
+#: views.py:15
+msgid "your cart is empty. Go shopping!"
+msgstr "سبد خرید شما خالی است!"
+
+#: views.py:36
+msgid "your order has been created"
+msgstr "سفارش شما با موفقیت ثبت شد"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 23:44+0330\n"
+"POT-Creation-Date: 2024-05-31 14:41+0330\n"
 "PO-Revision-Date: 2024-04-19 16:39+0330\n"
 "Last-Translator:   <uniquesmaili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: templates/_base.html:104
+#: templates/_base.html:104 templates/account/logout.html:6
 msgid "log out"
 msgstr "خروج"
 
@@ -91,10 +91,6 @@ msgstr "حساب کاربری ندارید؟"
 msgid "Login"
 msgstr "عضویت"
 
-#: templates/account/logout.html:5
-msgid "logout"
-msgstr ""
-
 #: templates/account/password_change_done.html:7
 msgid "Password Change Successful"
 msgstr "رمز عبور شما با موفقیت تغییر یافت"
@@ -127,6 +123,10 @@ msgstr "%(total)s تومان"
 #: templates/includes/cart_sidebar.html:53
 msgid "view cart"
 msgstr "مشاهده سبد خرید"
+
+#: templates/includes/cart_sidebar.html:54
+msgid "checkout"
+msgstr "پرداخت"
 
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/forms.py:6
 msgid "Search files"

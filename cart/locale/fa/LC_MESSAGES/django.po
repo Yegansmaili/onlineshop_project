@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 20:24+0330\n"
+"POT-Creation-Date: 2024-05-31 15:17+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,81 +18,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: cart/cart.py:32
+#: cart.py:32
 msgid "your product has successfully been added"
 msgstr "محصول با موفقیت به سبد خرید اضافه شد"
 
-#: cart/cart.py:43
+#: cart.py:43
 msgid "your product has been successfully removed"
 msgstr "محصول حذف شد"
 
-#: cart/cart.py:69
-msgid "your cart has been successfully removed"
-msgstr "سبد خرید شما با موفقیت حذف شد"
-
-#: cart/templates/cart/cart_detail.html:9
+#: templates/cart/cart_detail.html:9
 msgid "cart"
 msgstr "سبد خرید"
 
-#: cart/templates/cart/cart_detail.html:14
+#: templates/cart/cart_detail.html:14
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: cart/templates/cart/cart_detail.html:32
+#: templates/cart/cart_detail.html:32
 msgid "Image"
 msgstr "عکس"
 
-#: cart/templates/cart/cart_detail.html:33
+#: templates/cart/cart_detail.html:33
 msgid "Name"
 msgstr "نام محصول"
 
-#: cart/templates/cart/cart_detail.html:34
+#: templates/cart/cart_detail.html:34
 msgid "price"
 msgstr "قیمت"
 
-#: cart/templates/cart/cart_detail.html:35
+#: templates/cart/cart_detail.html:35
 msgid "quantity"
 msgstr "تعداد"
 
-#: cart/templates/cart/cart_detail.html:36
+#: templates/cart/cart_detail.html:36
 msgid "Total"
 msgstr "قیمت کل"
 
-#: cart/templates/cart/cart_detail.html:64
+#: templates/cart/cart_detail.html:64
 #, python-format
 msgid ""
 " %(pro_price)s $\n"
 "                                                                    "
 msgstr "%(pro_price)s تومان"
 
-#: cart/templates/cart/cart_detail.html:81
+#: templates/cart/cart_detail.html:81
 msgid " Update "
 msgstr " ویرایش "
 
-#: cart/templates/cart/cart_detail.html:88
+#: templates/cart/cart_detail.html:88
 #, python-format
 msgid ""
 " %(total_price)s $\n"
 "                                                                    "
 msgstr "%(total_price)s تومان"
 
-#: cart/templates/cart/cart_detail.html:100
+#: templates/cart/cart_detail.html:100
 msgid "! The cart is empty "
 msgstr "سبد خرید شما خالی است !"
 
-#: cart/templates/cart/cart_detail.html:102
+#: templates/cart/cart_detail.html:102
 msgid "Go shopping"
 msgstr "مشاهده محصولات"
 
-#: cart/templates/cart/cart_detail.html:110
+#: templates/cart/cart_detail.html:110
 msgid "Clear the Cart"
 msgstr "خالی کردن سبد خرید"
 
-#: cart/templates/cart/cart_detail.html:123
+#: templates/cart/cart_detail.html:123
 msgid "Total price"
 msgstr "قیمت نهایی"
 
-#: cart/templates/cart/cart_detail.html:127
+#: templates/cart/cart_detail.html:127
 #, python-format
 msgid "%(total)s $ "
 msgstr "%(total)s تومان"
+
+#: templates/cart/cart_detail.html:145
+msgid "checkout"
+msgstr "پرداخت"
+
+#: views.py:51
+
+msgid "your cart is already empty"
+msgstr "سبد خرید شما خالی است!"
+
+#~ msgid "your cart has been successfully removed"
+#~ msgstr "سبد خرید شما با موفقیت حذف شد"

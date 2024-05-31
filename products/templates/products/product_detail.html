@@ -85,7 +85,7 @@
                             </a>
                             <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab"
                                href="#nav-reviews" role="tab" aria-selected="true">
-                                <span>{% translate 'comments' %} ({{ comments|count_active_comments }})</span>
+                                <span>{% translate 'comments' %} ({{ comments|count_active_comments |number_translate}})</span>
                             </a>
                         </div>
                         <div class="tab-content product-data-tab__content" id="product-tabContent">
@@ -124,7 +124,7 @@
                             <div class="tab-pane fade" id="nav-reviews" role="tabpanel"
                                  aria-labelledby="nav-reviews-tab">
                                 <div class="product-reviews">
-                                    <h3 class="review__title">{{ comments| count_active_comments }} نظر
+                                    <h3 class="review__title">{{ comments| count_active_comments|number_translate }} نظر
                                         برای {{ product.title }}</h3>
                                     <ul class="review__list">
                                         {% for comment in comments|only_active_comments %}

@@ -8,53 +8,64 @@
 <aside class="mini-cart" id="miniCart">
     <div class="mini-cart-wrapper">
         <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
-        <div class="mini-cart-inner">
-            <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
-            <div class="mini-cart__content">
-                <ul class="mini-cart__list text-right">
-                    {% for item in cart %}
-                        <li class="mini-cart__product d-flex justify-content-between">
-                            <div class="mini-cart__product__image">
-                                <a href="{{ item.product_obj.get_absolute_url }}">
-                                     {% if item.product_obj.cover %}
-                                                            <img class="m-auto" style="max-height: 400px;"
-                                                                 src="{{ item.product_obj.cover.url }}"
-                                                                 alt="">
-                                                        {% else %}
-                                                            <img class="m-auto" style="max-height: 400px;"
-                                                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
-                                                                 alt="">
-                                                        {% endif %}
-                                </a>
-                            </div>
-                            <div class="mini-cart__product__content pt-2">
+        {% if cart %}
+            <div class="mini-cart-inner">
+                <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
+                <div class="mini-cart__content">
+                    <ul class="mini-cart__list text-right">
+                        {% for item in cart %}
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="{{ item.product_obj.get_absolute_url }}">
+                                        {% if item.product_obj.cover %}
+                                            <img class="m-auto" style="max-height: 400px;"
+                                                 src="{{ item.product_obj.cover.url }}"
+                                                 alt="">
+                                        {% else %}
+                                            <img class="m-auto" style="max-height: 400px;"
+                                                 src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-8316266-6632286.png?f=webp"
+                                                 alt="">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
                                     <span class="mini-cart__product__title d-flex flex-row justify-content-between">
                                         <a href="#">{{ item.product_obj.title }} </a>
                                         <a href="{% url 'cart:cart_remove' item.product_obj.pk %}" class="">
                                             &#10060;
                                         </a>
                                     </span>
-                                <span class="mini-cart__product__quantity">
+                                    <span class="mini-cart__product__quantity">
                                         <span>{{ item.product_obj.price|intcomma:False|number_translate }}</span> &#215; <span>{{ item.quantity|number_translate }}</span>
                                     </span>
-                            </div>
-                        </li>
+                                </div>
+                            </li>
 
-                    {% endfor %}
-                </ul>
-                <div class="mini-cart__total">
-                    <span>{% trans 'Total' %}</span>
-                    <span class="ammount">{% with cart.get_total_price|number_translate as total %}
-                        {% blocktrans %}{{ total }} $ {% endblocktrans %}
-                    {% endwith %}</span>
-                </div>
-                <div class="mini-cart__buttons">
-                    <a href="{% url 'cart:cart_detail' %}"
-                       class="btn btn-fullwidth btn-bg-sand mb--20">{% trans 'view cart' %}</a>
-                    <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
+                        {% endfor %}
+                    </ul>
+                    <div class="mini-cart__total">
+                        <span>{% trans 'Total' %}</span>
+                        <span class="ammount">{% with cart.get_total_price|number_translate as total %}
+                            {% blocktrans %}{{ total }} $ {% endblocktrans %}
+                        {% endwith %}</span>
+                    </div>
+                    <div class="mini-cart__buttons">
+                        <a href="{% url 'cart:cart_detail' %}"
+                           class="btn btn-fullwidth btn-bg-sand mb--20">{% trans 'view cart' %}</a>
+                        <a href="{% url 'orders:order_create' %}"
+                           class="btn btn-fullwidth btn-bg-sand">{% trans 'checkout' %}</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% else %}
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <div class="text-center">
+                    <h2 class="text text-primary">{% trans 'your cart is empty' %}</h2>
+                    <a href="{% url 'product_list' %}" class="btn">Go Shopping!</a>
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 </aside>
 <!-- Mini Cart End -->

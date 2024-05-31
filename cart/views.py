@@ -5,6 +5,8 @@ from cart.cart import Cart
 from cart.forms import AddToCartProductForm
 from products.models import Product
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 def cart_detail(request):
@@ -43,5 +45,8 @@ def remove_from_cart(request, product_id):
 @require_POST
 def clear_cart(request):
     cart = Cart(request)
-    cart.clear()
-    return redirect('cart:cart_detail')
+    if len(cart):
+        cart.clear()
+    else:
+        messages.warning(request, _('your cart is already empty'))
+    return redirect('product_list')
