@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'cart',
     'persian_translation',
     'orders',
+    'payment',
 
 ]
 
@@ -212,3 +213,5 @@ LOCALE_PATHS = [
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+ZARINPAL_MERCHANT_ID = env('DJANGO_ZARINPAL_MERCHANT_ID')
