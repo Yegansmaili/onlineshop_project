@@ -15,7 +15,8 @@ class Order(models.Model):
     order_note = models.CharField(max_length=1000, blank=True, null=True,
                                   help_text=_('If you have a note, write  here. Otherwise, leave it blank. '))
     zarinpal_authority = models.CharField(max_length=256, blank=True, null=True, )
-
+    zarinpal_ref_id = models.CharField(max_length=150, blank=True, null=True)
+    zarinpal_data = models.TextField(blank=True,null=True)
     order_created = models.DateTimeField(default=timezone.now)
     order_modified = models.DateTimeField(auto_now=True)
 
